@@ -15,6 +15,7 @@ RelaxDlg::RelaxDlg(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_GAME_XIUXIAN, pParent)
 {
 	bPause = false;
+	bStart = false;
 }
 
 RelaxDlg::~RelaxDlg()
@@ -125,6 +126,10 @@ void RelaxDlg::OnLButtonUp(UINT nFlags, CPoint point)
 	if (point.x< game.m_ptGame.x || point.y < game.m_ptGame.y
 		|| point.x>game.m_ptGame.x + nCol * sizeElem ||
 		point.y>game.m_ptGame.y + nCol * sizeElem)
+	{
+		return CDialogEx::OnLButtonUp(nFlags, point);
+	}
+	if (bPause == true || bStart == false)
 	{
 		return CDialogEx::OnLButtonUp(nFlags, point);
 	}

@@ -21,7 +21,7 @@ protected:
 	CDC m_dcElement;
 	CDC m_dcMask;
 
-
+	bool bStart;
 	bool bPause;
 	int timeCount;
 	CGameLogic<RelaxDlg> game;

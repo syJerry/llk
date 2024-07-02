@@ -56,7 +56,7 @@ END_MESSAGE_MAP()
 CllkDlg::CllkDlg(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_LLK_DIALOG, pParent)
 {
-	level = 3;
+	level = 1;
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	
 }
@@ -279,7 +279,7 @@ void CllkDlg::OnBnClickedButtonGaunqia()
 	// TODO: 在此添加控件通知处理程序代码
 
 		this->ShowWindow(SW_HIDE);
-		CGameDlg dlg(300, nullptr);
+		CGameDlg dlg(300/(level), nullptr);
 		dlg.DoModal();
 		this->ShowWindow(SW_SHOW);
 

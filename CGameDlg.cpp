@@ -18,6 +18,7 @@ CGameDlg::CGameDlg(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_GAME_DIALOG, pParent)
 {
 	bPause = false;
+	bStart = false;
 	timeCount = 500;
 	isLevel = false;
 	dlgname = "舟舟连连看-基本模式";
@@ -25,6 +26,7 @@ CGameDlg::CGameDlg(CWnd* pParent /*=nullptr*/)
 CGameDlg::CGameDlg(int timeCount,CWnd* pParent)
 	: CDialogEx(IDD_GAME_DIALOG, pParent)
 {
+	bStart = false;
 	bPause = false;
 	this->timeCount = timeCount;
 	isLevel = true;
@@ -162,6 +164,7 @@ void CGameDlg::OnBnClickedButtonStart()
 	this->GetDlgItem(IDC_BUTTON_TIP)->EnableWindow(TRUE);
 
 	// TODO: 在此添加控件通知处理程序代码
+	bStart = true;
 	game.UpdataMap(m_dcMem, m_dcBG, m_dcMask, m_dcElement);
 	//初始化进度条
 	m_GameProgress.SetRange(0, timeCount);    //初始范围
@@ -185,6 +188,10 @@ void CGameDlg::OnLButtonUp(UINT nFlags, CPoint point)
 	if (point.x< game.m_ptGame.x || point.y < game.m_ptGame.y
 		|| point.x>game.m_ptGame.x + nCol * sizeElem || 
 		point.y>game.m_ptGame.y + nCol * sizeElem)
+	{
+		return CDialogEx::OnLButtonUp(nFlags, point);
+	}
+	if (bPause==true || bStart==false)
 	{
 		return CDialogEx::OnLButtonUp(nFlags, point);
 	}
@@ -245,6 +252,7 @@ void CGameDlg::OnBnClickedButtonPause()
 
 		InvalidateRect(game.m_rcGame, FALSE);    //局部矩形更新
 		this->GetDlgItem(IDC_BUTTON_PAUSE)->SetWindowTextW(_T("继续游戏"));
+
 	}
 	else
 	{
@@ -315,7 +323,7 @@ int CGameDlg::JudgeWin(int timecount)
 	if (game.IsWin() == 1)
 	{
 		KillTimer(IDC_PROGRESS1);
-		MessageBox(_T("获胜！"), strTitle);
+		MessageBox(_T("博士，你怎么还在玩！"), strTitle);
 		this->GetDlgItem(IDC_BUTTON_PAUSE)->EnableWindow(FALSE);
 		this->GetDlgItem(IDC_BUTTON_TIP)->EnableWindow(FALSE);
 		this->GetDlgItem(IDC_BUTTON_RESET)->EnableWindow(FALSE);
@@ -346,7 +354,7 @@ int CGameDlg::JudgeWin(int timecount)
 		if(timecount<=-1)
 		{
 			KillTimer(IDC_PROGRESS1);
-			MessageBox(_T("很遗憾，时间到了！"), strTitle);
+			MessageBox(_T("这都过不了，快去玩明日方舟！"), strTitle);
 			this->GetDlgItem(IDC_BUTTON_PAUSE)->EnableWindow(FALSE);
 			this->GetDlgItem(IDC_BUTTON_TIP)->EnableWindow(FALSE);
 			this->GetDlgItem(IDC_BUTTON_RESET)->EnableWindow(FALSE);

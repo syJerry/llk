@@ -29,6 +29,7 @@ protected:
 	
 
 	bool bPause;//是否暂停
+	bool bStart;
 	int timeCount;//时间
 	bool isLevel;//是否为关卡模式
 	std::string dlgname;//对话框名称
