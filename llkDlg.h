@@ -11,6 +11,8 @@ class CllkDlg : public CDialogEx
 // 构造
 public:
 	CllkDlg(CWnd* pParent = nullptr);	// 标准构造函数
+	
+	
 
 // 对话框数据
 #ifdef AFX_DESIGN_TIME
@@ -33,6 +35,7 @@ protected:
 	DECLARE_MESSAGE_MAP()
 	void InitBackground();
 	void OnGetMinMaxInfo(MINMAXINFO* lpMMI);
+	void OnClose();
 public:
 	//void InitBackground();
 
@@ -45,4 +48,6 @@ public:
 	afx_msg void OnBnClickedButtonXiuxian();
 	afx_msg void OnBnClickedButtonBanzhu();
 	afx_msg void OnBnClickedButtonGaunqia();
+	afx_msg void OnBnClickedButtonShezhi();
+	afx_msg void OnBnClickedButtonPaihan();
 };

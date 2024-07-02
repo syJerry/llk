@@ -5,6 +5,7 @@
 #include "llk.h"
 #include "afxdialogex.h"
 #include "HelpDlg.h"
+#include <string>
 
 
 // HelpDlg 对话框
@@ -44,6 +45,8 @@ BOOL HelpDlg::OnInitDialog()
 	HICON hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	SetIcon(hIcon, TRUE);
 
+	std::string dlgname = "帮助";
+	SetWindowText((LPCTSTR)_bstr_t(dlgname.c_str()));
 	CClientDC dc(this);
 	//加载Help图片资源
 	//加载BMP图片资源

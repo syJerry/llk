@@ -222,6 +222,9 @@
     <Image Include="theme\31_luo_i2.bmp" />
     <Image Include="theme\basic_help.bmp" />
   </ItemGroup>
+  <ItemGroup>
+    <Media Include="res\a.wav" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

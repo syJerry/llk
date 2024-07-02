@@ -63,6 +63,7 @@ BEGIN_MESSAGE_MAP(CGameDlg, CDialogEx)
 	ON_WM_TIMER()
 	ON_EN_CHANGE(IDC_EDIT1, &CGameDlg::OnEnChangeEdit1)
 	ON_BN_CLICKED(IDC_BUTTON_HELP, &CGameDlg::OnBnClickedButtonHelp)
+	ON_BN_CLICKED(IDC_BUTTON_SET, &CGameDlg::OnBnClickedButtonSet)
 END_MESSAGE_MAP()
 
 
@@ -375,4 +376,13 @@ int CGameDlg::JudgeWin(int timecount)
 		}
 		this->GetDlgItem(IDC_BUTTON_START)->EnableWindow(FALSE);
 	}
+}
+
+
+void CGameDlg::OnBnClickedButtonSet()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	CString strTitle;
+	MessageBox(_T("这里不是设置！"), strTitle);
+
 }

@@ -36,6 +36,7 @@ BEGIN_MESSAGE_MAP(RelaxDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON_TIP, &RelaxDlg::OnBnClickedButtonTip)
 	ON_BN_CLICKED(IDC_BUTTON_PAUSE, &RelaxDlg::OnBnClickedButtonPause)
 	ON_BN_CLICKED(IDC_BUTTON_HELP, &RelaxDlg::OnBnClickedButtonHelp)
+	ON_BN_CLICKED(IDC_BUTTON_SET, &RelaxDlg::OnBnClickedButtonSet)
 END_MESSAGE_MAP()
 
 
@@ -255,4 +256,11 @@ void RelaxDlg::JudgeWin(int timecount)
 		}
 		this->GetDlgItem(IDC_BUTTON_START)->EnableWindow(FALSE);
 	}
+}
+
+void RelaxDlg::OnBnClickedButtonSet()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	CString strTitle;
+	MessageBox(_T("这里不是设置！"), strTitle);
 }

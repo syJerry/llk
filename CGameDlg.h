@@ -63,4 +63,5 @@ public:
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	afx_msg void OnEnChangeEdit1();
 	afx_msg void OnBnClickedButtonHelp();
+	afx_msg void OnBnClickedButtonSet();
 };

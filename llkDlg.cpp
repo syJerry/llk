@@ -10,6 +10,9 @@
 #include "CGameDlg.h"
 #include"HELPDLG.h"
 #include"RelaxDlg.h"
+#include<windows.h>
+#include< mmsystem.h >
+#pragma comment(lib, "winmm")
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -60,7 +63,13 @@ CllkDlg::CllkDlg(CWnd* pParent /*=nullptr*/)
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	
 }
+void CllkDlg::OnClose()
+{
+	// 停止所有正在播放的声音
+	PlaySound(NULL, NULL, 0);
 
+	CDialog::OnClose();
+}
 void CllkDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
@@ -79,6 +88,8 @@ BEGIN_MESSAGE_MAP(CllkDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON_XIUXIAN, &CllkDlg::OnBnClickedButtonXiuxian)
 	ON_BN_CLICKED(IDC_BUTTON_BANZHU, &CllkDlg::OnBnClickedButtonBanzhu)
 	ON_BN_CLICKED(IDC_BUTTON_GAUNQIA, &CllkDlg::OnBnClickedButtonGaunqia)
+	ON_BN_CLICKED(IDC_BUTTON_SHEZHI, &CllkDlg::OnBnClickedButtonShezhi)
+	ON_BN_CLICKED(IDC_BUTTON_PAIHAN, &CllkDlg::OnBnClickedButtonPaihan)
 END_MESSAGE_MAP()
 
 
@@ -116,6 +127,7 @@ BOOL CllkDlg::OnInitDialog()
 	// TODO: 在此添加额外的初始化代码| SWP_NOZORDER| SWP_NOACTIVATE
 	SetWindowPos(NULL, 0, 0, 835, 635, SWP_NOMOVE );
 	InitBackground();
+	PlaySound(MAKEINTRESOURCE(IDR_WAVE1), AfxGetResourceHandle(), SND_ASYNC | SND_RESOURCE | SND_NODEFAULT | SND_LOOP);
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
 
@@ -285,4 +297,20 @@ void CllkDlg::OnBnClickedButtonGaunqia()
 
 
 
+}
+
+
+void CllkDlg::OnBnClickedButtonShezhi()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	CString strTitle;
+	MessageBox(_T("这里不是设置！"), strTitle);
+}
+
+
+void CllkDlg::OnBnClickedButtonPaihan()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	CString strTitle;
+	MessageBox(_T("这片大地不需要排名！！！"), strTitle);
 }

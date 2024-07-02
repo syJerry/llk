@@ -52,4 +52,5 @@ public:
 	afx_msg void OnBnClickedButtonTip();
 	afx_msg void OnBnClickedButtonPause();
 	afx_msg void OnBnClickedButtonHelp();
+	afx_msg void OnBnClickedButtonSet();
 };
