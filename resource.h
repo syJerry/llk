@@ -13,6 +13,8 @@
 #define IDD_GAME_XIUXIAN                143
 #define IDB_BITMAP2                     145
 #define IDB_BITMAP3                     146
+#define IDB_BITMAP4                     147
+#define IDB_BITMAP5                     148
 #define IDC_BUTTON1                     1000
 #define IDB_MAIN_BG                     1000
 #define IDC_BUTTON_BASE                 1000
@@ -41,7 +43,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        147
+#define _APS_NEXT_RESOURCE_VALUE        149
 #define _APS_NEXT_COMMAND_VALUE         32771
 #define _APS_NEXT_CONTROL_VALUE         1014
 #define _APS_NEXT_SYMED_VALUE           101

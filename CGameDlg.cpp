@@ -31,7 +31,7 @@ CGameDlg::CGameDlg(int timeCount,CWnd* pParent)
 	this->timeCount = timeCount;
 	isLevel = true;
 	dlgname = "舟舟连连看-关卡模式 ";
-	std::string levelname = "第" + std::to_string(level)+"关";
+	std::string levelname = "第" + std::to_string(level)+"/3关";
 	dlgname = dlgname + levelname;
 	
 }
@@ -90,14 +90,19 @@ void CGameDlg::InitElement()
 {
 	//载入元素
 	CClientDC dc(this);
-	HANDLE bmp = ::LoadImage(NULL, _T("theme\\fruit_element.bmp"), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
-	m_dcElement.CreateCompatibleDC(&dc);
-	m_dcElement.SelectObject(bmp);
+	CBitmap bmpElem;
+	bmpElem.LoadBitmapW(IDB_BITMAP4);
+	/*HANDLE bmp = ::LoadImage(NULL, _T("theme\\001.bmp"), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
+	*/m_dcElement.CreateCompatibleDC(&dc);
+	m_dcElement.SelectObject(bmpElem);
 	
 	//载入mask
-	bmp = ::LoadImage(NULL, _T("theme\\fruit_mask.bmp"), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
-	m_dcMask.CreateCompatibleDC(&dc);
-	m_dcMask.SelectObject(bmp);
+	CBitmap bmpMask;
+	bmpMask.LoadBitmapW(IDB_BITMAP5);
+	/*HANDLE bmp = ::LoadImage(NULL, _T("theme\\inv0031.bmp"), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
+	*/m_dcMask.CreateCompatibleDC(&dc);
+	m_dcMask.SelectObject(bmpMask);
+
 }
 
 BOOL CGameDlg::OnInitDialog()
@@ -332,8 +337,8 @@ int CGameDlg::JudgeWin(int timecount)
 		{
 			if (level <=2)
 			{
-				CGameDlg dlg(300 / (level+1), nullptr);
 				level++;
+				CGameDlg dlg(300 / (level), nullptr);
 				dlg.DoModal();
 			}
 
