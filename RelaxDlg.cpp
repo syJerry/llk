@@ -63,14 +63,18 @@ void RelaxDlg::InitElement()
 {
 	//载入元素
 	CClientDC dc(this);
-	HANDLE bmp = ::LoadImage(NULL, _T("theme\\fruit_element.bmp"), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
-	m_dcElement.CreateCompatibleDC(&dc);
-	m_dcElement.SelectObject(bmp);
+	CBitmap bmpElem;
+	bmpElem.LoadBitmapW(IDB_BITMAP4);
+	/*HANDLE bmp = ::LoadImage(NULL, _T("theme\\001.bmp"), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
+	*/m_dcElement.CreateCompatibleDC(&dc);
+	m_dcElement.SelectObject(bmpElem);
 
 	//载入mask
-	bmp = ::LoadImage(NULL, _T("theme\\fruit_mask.bmp"), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
-	m_dcMask.CreateCompatibleDC(&dc);
-	m_dcMask.SelectObject(bmp);
+	CBitmap bmpMask;
+	bmpMask.LoadBitmapW(IDB_BITMAP6);
+	/*HANDLE bmp = ::LoadImage(NULL, _T("theme\\inv0031.bmp"), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
+	*/m_dcMask.CreateCompatibleDC(&dc);
+	m_dcMask.SelectObject(bmpMask);
 }
 
 BOOL RelaxDlg::OnInitDialog()
@@ -113,6 +117,7 @@ void RelaxDlg::OnBnClickedButtonStart()
 	this->GetDlgItem(IDC_BUTTON_TIP)->EnableWindow(TRUE);
 
 	// TODO: 在此添加控件通知处理程序代码
+	bStart = true;
 	game.UpdataMap(m_dcMem, m_dcBG, m_dcMask, m_dcElement);
 
 	Invalidate(FALSE);

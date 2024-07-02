@@ -1,9 +1,9 @@
 from PIL import Image
 
 # 图片文件路径
-image_path = '0031.bmp'  # 替换为你的图片文件路径
+image_path = '0032.png'  # 替换为你的图片文件路径
 # 输出的图片文件路径
-output_path = 'inv0031.bmp'  # 你可以自定义输出文件名
+output_path = 'inv0032.bmp'  # 你可以自定义输出文件名
 
 # 打开图片
 original_image = Image.open(image_path)

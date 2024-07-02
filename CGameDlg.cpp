@@ -98,7 +98,7 @@ void CGameDlg::InitElement()
 	
 	//载入mask
 	CBitmap bmpMask;
-	bmpMask.LoadBitmapW(IDB_BITMAP5);
+	bmpMask.LoadBitmapW(IDB_BITMAP6);
 	/*HANDLE bmp = ::LoadImage(NULL, _T("theme\\inv0031.bmp"), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
 	*/m_dcMask.CreateCompatibleDC(&dc);
 	m_dcMask.SelectObject(bmpMask);

@@ -95,7 +95,7 @@
     <Image Include="theme\001.bmp">
       <Filter>资源文件</Filter>
     </Image>
-    <Image Include="theme\inv0031.bmp">
+    <Image Include="theme\0032.bmp">
       <Filter>资源文件</Filter>
     </Image>
   </ItemGroup>
