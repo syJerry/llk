@@ -234,9 +234,20 @@ void RelaxDlg::JudgeWin(int timecount)
 		KillTimer(IDC_PROGRESS1);
 		//提示获胜
 		CString strTitle;
-		if (timecount <= 0)
-		{
-			MessageBox(_T("很遗憾，时间到了！"), strTitle);
+		//if (timecount <= 0)
+		//{
+		//	MessageBox(_T("很遗憾，时间到了！"), strTitle);
+		//	this->GetDlgItem(IDC_BUTTON_PAUSE)->EnableWindow(FALSE);
+		//	this->GetDlgItem(IDC_BUTTON_TIP)->EnableWindow(FALSE);
+		//	this->GetDlgItem(IDC_BUTTON_RESET)->EnableWindow(FALSE);
+		//	this->ShowWindow(SW_HIDE);
+		//	EndDialog(0);
+		//	/*CllkDlg dlg;
+		//	dlg.DoModal();*/
+		//}
+		/*else
+		{*/
+			MessageBox(_T("获胜！"), strTitle);
 			this->GetDlgItem(IDC_BUTTON_PAUSE)->EnableWindow(FALSE);
 			this->GetDlgItem(IDC_BUTTON_TIP)->EnableWindow(FALSE);
 			this->GetDlgItem(IDC_BUTTON_RESET)->EnableWindow(FALSE);
@@ -244,18 +255,7 @@ void RelaxDlg::JudgeWin(int timecount)
 			EndDialog(0);
 			/*CllkDlg dlg;
 			dlg.DoModal();*/
-		}
-		else
-		{
-			MessageBox(_T("获胜！"), strTitle);
-			this->GetDlgItem(IDC_BUTTON_PAUSE)->EnableWindow(FALSE);
-			this->GetDlgItem(IDC_BUTTON_TIP)->EnableWindow(FALSE);
-			this->GetDlgItem(IDC_BUTTON_RESET)->EnableWindow(FALSE);
-			this->ShowWindow(SW_HIDE);
-
-			CllkDlg dlg;
-			dlg.DoModal();
-		}
+		//}
 		this->GetDlgItem(IDC_BUTTON_START)->EnableWindow(FALSE);
 	}
 }

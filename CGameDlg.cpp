@@ -19,7 +19,7 @@ CGameDlg::CGameDlg(CWnd* pParent /*=nullptr*/)
 {
 	bPause = false;
 	bStart = false;
-	timeCount = 10;
+	timeCount = 500;
 	isLevel = false;
 	dlgname = "舟舟连连看-基本模式";
 }
