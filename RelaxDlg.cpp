@@ -241,8 +241,9 @@ void RelaxDlg::JudgeWin(int timecount)
 			this->GetDlgItem(IDC_BUTTON_TIP)->EnableWindow(FALSE);
 			this->GetDlgItem(IDC_BUTTON_RESET)->EnableWindow(FALSE);
 			this->ShowWindow(SW_HIDE);
-			CllkDlg dlg;
-			dlg.DoModal();
+			EndDialog(0);
+			/*CllkDlg dlg;
+			dlg.DoModal();*/
 		}
 		else
 		{
@@ -251,6 +252,7 @@ void RelaxDlg::JudgeWin(int timecount)
 			this->GetDlgItem(IDC_BUTTON_TIP)->EnableWindow(FALSE);
 			this->GetDlgItem(IDC_BUTTON_RESET)->EnableWindow(FALSE);
 			this->ShowWindow(SW_HIDE);
+
 			CllkDlg dlg;
 			dlg.DoModal();
 		}

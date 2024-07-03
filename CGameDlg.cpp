@@ -19,7 +19,7 @@ CGameDlg::CGameDlg(CWnd* pParent /*=nullptr*/)
 {
 	bPause = false;
 	bStart = false;
-	timeCount = 500;
+	timeCount = 10;
 	isLevel = false;
 	dlgname = "舟舟连连看-基本模式";
 }
@@ -339,6 +339,7 @@ int CGameDlg::JudgeWin(int timecount)
 			if (level <=2)
 			{
 				level++;
+				EndDialog(0);
 				CGameDlg dlg(300 / (level), nullptr);
 				dlg.DoModal();
 			}
@@ -346,8 +347,9 @@ int CGameDlg::JudgeWin(int timecount)
 		}
 		else
 		{
-			CllkDlg dlg;
-			dlg.DoModal();
+			/*CllkDlg dlg;
+			dlg.DoModal();*/
+			EndDialog(0);
 		}
 
 		return 1;
@@ -365,8 +367,9 @@ int CGameDlg::JudgeWin(int timecount)
 			this->GetDlgItem(IDC_BUTTON_TIP)->EnableWindow(FALSE);
 			this->GetDlgItem(IDC_BUTTON_RESET)->EnableWindow(FALSE);
 			this->ShowWindow(SW_HIDE);
-			CllkDlg dlg;
-			dlg.DoModal();
+			/*CllkDlg dlg;
+			dlg.DoModal();*/
+			EndDialog(0);
 			return -1;
 
 		}
